@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://java.sun.com/xml/ns/javaee" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd" id="WebApp_ID" version="3.0">
+  <display-name>tomcatServer</display-name>
+  <welcome-file-list>
+    <welcome-file>index.html</welcome-file>
+    <welcome-file>index.htm</welcome-file>
+    <welcome-file>index.jsp</welcome-file>
+    <welcome-file>default.html</welcome-file>
+    <welcome-file>default.htm</welcome-file>
+    <welcome-file>default.jsp</welcome-file>
+    <welcome-file>Success.jsp</welcome-file>
+    <welcome-file>Faied.jsp</welcome-file>
+    <welcome-file>regist.jsp</welcome-file>
+    <welcome-file>registEmployee.jsp</welcome-file>
+    <welcome-file>admin.jsp</welcome-file>
+    <welcome-file>findOne.jsp</welcome-file>
+    <welcome-file>userList.jsp</welcome-file>
+  </welcome-file-list>
+  <servlet>
+     <servlet-name>
+         UserAction
+     </servlet-name>
+     <servlet-class>
+         Action.UserAction
+     </servlet-class>
+  </servlet>
+  <servlet-mapping>
+     <servlet-name>
+         UserAction
+     </servlet-name>
+     <url-pattern>
+         /UserAction
+     </url-pattern>
+  </servlet-mapping>
+   <servlet>
+     <servlet-name>QueryAll</servlet-name>
+     <servlet-class>Action.QueryAll</servlet-class>
+  </servlet>
+  <servlet-mapping>
+     <servlet-name>QueryAll</servlet-name>
+     <url-pattern>/QueryAll</url-pattern>
+  </servlet-mapping>
+  
+   <servlet>
+     <servlet-name>RegistAction</servlet-name>
+     <servlet-class>Action.RegistAction</servlet-class>
+  </servlet>
+  <servlet-mapping>
+     <servlet-name>RegistAction</servlet-name>
+     <url-pattern>/RegistAction</url-pattern>
+  </servlet-mapping>
+  
+   <servlet>
+     <servlet-name>DeleteAction</servlet-name>
+     <servlet-class>Action.DeleteAction</servlet-class>
+  </servlet>
+  <servlet-mapping>
+     <servlet-name>DeleteAction</servlet-name>
+     <url-pattern>/DeleteAction</url-pattern>
+  </servlet-mapping>
+  
+  <servlet>
+     <servlet-name>AddOneEmployee</servlet-name>
+     <servlet-class>Action.AddOneEmployee</servlet-class>
+  </servlet>
+  <servlet-mapping>
+     <servlet-name>AddOneEmployee</servlet-name>
+     <url-pattern>/AddOneEmployee</url-pattern>
+  </servlet-mapping>
+  
+ <servlet>
+     <servlet-name>DeleteUserAction</servlet-name>
+     <servlet-class>Action.DeleteUserAction</servlet-class>
+  </servlet>
+  <servlet-mapping>
+     <servlet-name>DeleteUserAction</servlet-name>
+     <url-pattern>/DeleteUserAction</url-pattern>
+  </servlet-mapping>
+  
+   <servlet>
+     <servlet-name>updateUser</servlet-name>
+     <servlet-class>Action.updateUser</servlet-class>
+  </servlet>
+  <servlet-mapping>
+     <servlet-name>updateUser</servlet-name>
+     <url-pattern>/updateUser</url-pattern>
+  </servlet-mapping>
+  
+   <servlet>
+     <servlet-name>FindOneUser</servlet-name>
+     <servlet-class>Action.FindOneUser</servlet-class>
+  </servlet>
+  <servlet-mapping>
+     <servlet-name>FindOneUser</servlet-name>
+     <url-pattern>/FindOneUser</url-pattern>
+  </servlet-mapping>
+</web-app>
