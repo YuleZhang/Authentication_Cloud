@@ -21,6 +21,15 @@ public class updateUser extends HttpServlet{
 		UserService us = new UserServiceiImpl();
 		System.out.println("更新的用户为：："+username);
 		User u = us.queryOne(username);
+		String status = u.getStatus();
+		if(status.equals("Yes"))
+		{
+			u.setStatus("No");
+		}
+		else
+		{
+			u.setStatus("Yes");
+		}
 		u.setPhoneNum(phone);
 		u.setEmail(email);
 		us.updateOne(u);

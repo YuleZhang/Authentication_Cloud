@@ -4,14 +4,13 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Insert title here</title>
+<title>注册管理员账号(捷径)</title>
 </head>
 <body>
-<form action = "/EMS/UserAction" method="get">
+<form action = "/EMS/RegistAction?status=admin" method="post">
  用户名: <input type="text" name="username"><br>
  密码:   <input type="password" name="password"><br>
-	<input type="submit" value="登陆">
-	<a href="regist.jsp"><input type="button" value="注册"></a>
+	<input type="submit" value="注册">
 </form>
 </body>
 </html>

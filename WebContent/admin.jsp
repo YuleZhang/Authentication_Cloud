@@ -25,22 +25,7 @@
 <script src="${pageContext.request.contextPath}/js/bootstrap.min.js"></script>
 <script src="${pageContext.request.contextPath}/js/highcharts.js"></script>
 <script src="${pageContext.request.contextPath}/js/modules/exporting.js"></script>
-<script>
-	var username;
-	var status;
-	changeUser = function(operate, flag){
-		switch (operate) {
-		case "remove":window.location="DeleteUserAction?username="+username+"&status="+status;break;//"+&pageIndex="+${sessionScope.page.pageIndex}+"&count="+${sessionScope.page.pageSize}
-		case "changeStatu":window.location="updateUser?username="+username;break;
-		case "export":window.location="/EMS/user/exportData";break;
-		case "import":window.location="/EMS/user/importData?filename="+flag;break;
-		case "findu": document.getElementById("form1").submit();break;
-		default: 
-			username=operate; status=flag;
-		}
-	};
-	
-</script>
+
 <script type="text/javascript">
 window.onload=function(){
 	var username;
@@ -55,6 +40,17 @@ window.onload=function(){
 	//	default: username=operate; status=flag;
 	//	}
 	//};
+	changeUser = function(operate, flag){
+		switch (operate) {
+		case "remove":window.location="DeleteUserAction?username="+username+"&status="+status;break;//"+&pageIndex="+${sessionScope.page.pageIndex}+"&count="+${sessionScope.page.pageSize}
+		case "changeStatu":window.location="updateUser?username="+username;break;
+		case "export":window.location="/EMS/user/exportData";break;
+		case "import":window.location="/EMS/user/importData?filename="+flag;break;
+		case "findu": document.getElementById("form1").submit();break;
+		default: 
+			username=operate; status=flag;
+		}
+	};
 	updateUser = function(id){
 		var utds =$("#updateTr").children();
 		var xtds = $("#"+id).children();
@@ -154,28 +150,28 @@ function  test(){
 	  var  count=$("#c").val();
 	  location.href="${pageContext.request.contextPath}/user/FindAllUserServlet?count="+count;	
 }
-
-function selectUser(username){
+selectUser = function(username){
 	  $.ajax({
-        url:"${pageContext.request.contextPath}/SelectByUser",
-        type:"GET",
-        data:"username="+username,
-        dataType:"json", 
-        success:function(data){     
-             $("#username").prop("value",data.username);
-             $("#email").prop("value",data.email);
-             $("#phone").prop("value",data.phone);
-             $("#finalip").prop("value",data.finalip);
-             $("#finalTime").prop("value",data.finalTime);
-        }
-     });
-	  $('#updateUserForm').modal({
-		    backdrop:false,
-		    keyboard:true,
-		    show:false
-		});
+      url:"${pageContext.request.contextPath}/SelectByUser",
+      type:"GET",
+      data:"username="+username,
+      dataType:"json", 
+      success:function(data){     
+           $("#username").prop("value",data.username);
+           $("#email").prop("value",data.email);
+           $("#phone").prop("value",data.phone);
+           $("#finalip").prop("value",data.finalip);
+           $("#finalTime").prop("value",data.finalTime);
+      }
+   });
+  $('#updateUserForm').modal({
+	    backdrop:false,
+	    keyboard:true,
+	    show:false
+	});
 		
 }
+
 
 </script>
 <style type="text/css">
@@ -265,7 +261,7 @@ li {
 								<ul class="dropdown-menu" role="menu">
 									<li><a href="#">个人资料</a></li>
 									<li class="divider"></li>
-									<li><a href="${pageContext.request.contextPath}/ExitServlet">退出</a></li>
+									<li><a href="${pageContext.request.contextPath}/ExitAction">退出</a></li>
 								</ul></li>
 						</ul>
 					</div>

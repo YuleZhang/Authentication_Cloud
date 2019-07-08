@@ -9,6 +9,7 @@ import com.mongodb.BasicDBObject;
 import com.mongodb.MongoClient;
 import com.mongodb.client.MongoCollection;
 import com.mongodb.client.MongoCursor;
+import com.mongodb.client.MongoDatabase;
 
 import Util.MongoDBUtil;
 import entity.Admin;
@@ -25,12 +26,20 @@ public class AdminDaoImpl implements AdminDao{
 	    MongoCollection<Document> mongoCollection;
 		public AdminDaoImpl() {
 			super();
-			mongoCollection = MongoDBUtil.getConnect(host,port,databaseName).getCollection(collectionName);
+			MongoDatabase mongoDatabase = MongoDBUtil.getConnect(host,port,databaseName);
+			if(null == mongoDatabase)
+			{
+				System.out.println("数据库不存在，请重新指定");
+			}
+			else {
+				mongoCollection = MongoDBUtil.getConnect(host,port,databaseName).getCollection(collectionName);
+			}
 			//如果没有找到该集合，则进行创建
 			if(null == mongoCollection)
 			{
 				MongoDBUtil.getConnect(host, port, databaseName).createCollection(collectionName);
 				mongoCollection = MongoDBUtil.getConnect(host,port,databaseName).getCollection(collectionName);
+				System.out.println("创建了集合");
 			}
 		}
 		public Admin queryOne(String username) {
@@ -54,6 +63,18 @@ public class AdminDaoImpl implements AdminDao{
 				return null;
 			}
 	        return null;
+		}
+		public void insertOne(Admin admin)
+		{
+			if(null == mongoCollection)
+			{
+				System.out.println("数据库连接失败");
+				return;
+			}
+			Document document = new Document("username",admin.getUsername())
+					.append("password", admin.getPassword());	
+			mongoCollection.insertOne(document);
+			System.out.println("数据插入成功");
 		}
 
 }

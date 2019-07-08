@@ -94,4 +94,22 @@
      <servlet-name>FindOneUser</servlet-name>
      <url-pattern>/FindOneUser</url-pattern>
   </servlet-mapping>
+  
+  <servlet>
+     <servlet-name>SelectByUser</servlet-name>
+     <servlet-class>Action.SelectByUser</servlet-class>
+  </servlet>
+  <servlet-mapping>
+     <servlet-name>SelectByUser</servlet-name>
+     <url-pattern>/SelectByUser</url-pattern>
+  </servlet-mapping>
+  
+  <servlet>
+     <servlet-name>ExitAction</servlet-name>
+     <servlet-class>Action.ExitAction</servlet-class>
+  </servlet>
+  <servlet-mapping>
+     <servlet-name>ExitAction</servlet-name>
+     <url-pattern>/ExitAction</url-pattern>
+  </servlet-mapping>
 </web-app>

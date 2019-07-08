@@ -32,5 +32,9 @@ public class AdminServiceImpl implements AdminService
 			 }
 		}
 	}
+	public void insertOne(Admin admin)
+	{
+		dao.insertOne(admin);
+	}
 	
 }

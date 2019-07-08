@@ -20,7 +20,16 @@
 <script src="./js/jquery-2.1.3.min.js"></script>
 <!--引入Bootstrap的js文件-->
 <script src="./js/bootstrap.min.js"></script>
-
+<script>
+$(function(){
+	/** 验证文件是否导入成功  */
+	$("#form1").ajaxForm(function(data){  
+		if(data=="1"){
+			alert("登陆失败！");   
+		}
+	});     
+});
+</script>
 <style type="text/css">
 .pagination {
 	display: inline-block;
@@ -117,7 +126,7 @@ table{
 		<table width="100%" height="90%">
 		<tr >
 			<td align="center" valign="middle">
-			<form action="${pageContext.request.contextPath}/UserAction" method="post">
+			<form id="form1" action="${pageContext.request.contextPath}/UserAction" method="post">
 				<table align="center" width="381px" height="40%" cellspacing="0" border="1">
 					<tr class="bg1" height="27px" align="center">
 						<td colspan="3"><font color="FFFFFF">北京石油化工学院云平台运营项目</td>
