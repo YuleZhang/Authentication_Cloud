@@ -85,6 +85,18 @@ window.onload=function(){
 				uutds.value=$(xtds[i]).text();
 		} 
 	}
+	showInfo = function(username){
+		$.ajax({
+		      url:"${pageContext.request.contextPath}/SelectByUser?flag=1",
+		      type:"GET",
+		      data:"username="+username,
+		      dataType:"json", 
+		      success:function(data){     
+		    	  alert("用户名： "+data.username);
+		      }
+		   });
+		
+	}
 
 $(function () {
     var chart;
@@ -152,7 +164,7 @@ function  test(){
 }
 selectUser = function(username){
 	  $.ajax({
-      url:"${pageContext.request.contextPath}/SelectByUser",
+      url:"${pageContext.request.contextPath}/SelectByUser?flag=0",
       type:"GET",
       data:"username="+username,
       dataType:"json", 
@@ -259,7 +271,7 @@ li {
 									<span class="caret"></span>
 							</a>
 								<ul class="dropdown-menu" role="menu">
-									<li><a href="#">个人资料</a></li>
+									<li><a href="javascript:void(0);" onclick="showInfo('${sessionScope.admin.username}')">个人资料</a></li>
 									<li class="divider"></li>
 									<li><a href="${pageContext.request.contextPath}/ExitAction">退出</a></li>
 								</ul></li>

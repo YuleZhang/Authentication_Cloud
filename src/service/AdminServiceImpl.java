@@ -36,5 +36,10 @@ public class AdminServiceImpl implements AdminService
 	{
 		dao.insertOne(admin);
 	}
-	
+	@Override
+	public Admin queryOne(String username) {
+		// TODO Auto-generated method stub
+		Admin admin = dao.queryOne(username);
+		return admin;
+	}
 }

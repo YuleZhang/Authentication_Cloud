@@ -14,6 +14,7 @@ import javax.xml.ws.http.HTTPException;
 import entity.Admin;
 import entity.Employee;
 import entity.User;
+import net.sf.json.JSONObject;
 import service.AdminService;
 import service.AdminServiceImpl;
 //import service.EmployeeService;
@@ -28,6 +29,7 @@ public class UserAction extends HttpServlet{
 	public void service(HttpServletRequest request, HttpServletResponse response) throws HTTPException,IOException{
 		//获取url传入参数
 		String username = request.getParameter("username");
+		System.out.println(username);
 		String password = request.getParameter("password");
 		String status = request.getParameter("role");	
 		UserService uService = new UserServiceiImpl(); //用户服务类
@@ -46,8 +48,6 @@ public class UserAction extends HttpServlet{
 				response.sendRedirect("/EMS/admin.jsp");
 			}
 			else {
-				
-				System.out.println("登陆失败测试");
 				response.sendRedirect("/EMS/login.jsp");
 			}
 		}
@@ -60,8 +60,6 @@ public class UserAction extends HttpServlet{
 				response.sendRedirect("/EMS/userList.jsp");
 			}
 			else {
-				PrintWriter out = response.getWriter();
-				out.println("1");
 				response.sendRedirect("/EMS/login.jsp");
 			}
 		}

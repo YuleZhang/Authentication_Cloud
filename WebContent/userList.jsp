@@ -22,7 +22,22 @@ function  test(){
 	  var  count=$("#c").val();
 	  location.href="${pageContext.request.contextPath}/QueryAll?count="+count;	
 }
-
+showInfo = function(username){
+	$.ajax({
+	      url:"${pageContext.request.contextPath}/SelectByUser?flag=0",
+	      type:"GET",
+	      data:"username="+username,
+	      dataType:"json", 
+	      success:function(data){     
+	    	  alert("用户名： "+data.username+
+	    			  "\n邮箱： "+data.email+
+	    			  "\n手机： "+data.phone+
+	    			  "\n最后登陆ip： "+data.finalip+
+	    			  "\n最后登陆时间： "+data.finalTime);
+	      }
+	   });
+	
+}
 </script>
 <style type="text/css">
 .pagination {
@@ -108,9 +123,9 @@ li {
 									<span class="caret"></span>
 							</a>
 								<ul class="dropdown-menu" role="menu">
-									<li><a href="#">个人资料</a></li>
+									<li><a href="javascript:void(0);" onclick="showInfo('${sessionScope.username}')">个人资料</a></li>
 									<li class="divider"></li>
-									<li><a href="${pageContext.request.contextPath}/ExitServlet">安全退出</a></li>
+									<li><a href="${pageContext.request.contextPath}/ExitAction">安全退出</a></li>
 								</ul></li>
 						</ul>
 					</div>
