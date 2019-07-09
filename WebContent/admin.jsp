@@ -406,7 +406,7 @@ li {
 												for="inputGroupSuccess1">用户状态</td> -->
 										</tr>
 									</thead>
-						  <form id="ff"   class="" action="updateUser" method="post" >
+						  <form id="ff"   class="" action="updateUser?operate=modify" method="post" >
 									<tbody>
 										<tr id="updateTr">
 											<td><input required="required" id="username"
