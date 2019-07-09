@@ -9,6 +9,6 @@ import javax.xml.ws.http.HTTPException;
 
 public class ExitAction extends HttpServlet{
 	public void service(HttpServletRequest request, HttpServletResponse response) throws HTTPException,IOException{
-		response.sendRedirect("/EMS/login.jsp");
+		response.sendRedirect(request.getContextPath()+"/login.jsp");
 	}
 }

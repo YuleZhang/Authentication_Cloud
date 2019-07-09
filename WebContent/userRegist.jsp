@@ -130,7 +130,7 @@ table{
 		<table width="100%" height="90%">
 		<tr >
 			<td align="center" valign="middle">
-			    <form id="form" action="${pageContext.request.contextPath}/RegistAction">
+			    <form id="form" action="${pageContext.request.contextPath}/RegistAction?status=user" method="post">
 				<table align="center" width="381px" height="70%" cellspacing="0" >
 					<tr class="bg1" height="27px" align="center">
 						<td colspan="3"><font color="FFFFFF">北京石油化工云平台运营项目普通用户注册</td>

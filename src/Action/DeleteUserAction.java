@@ -11,7 +11,6 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import javax.xml.ws.http.HTTPException;
 
-import entity.Employee;
 import entity.User;
 import service.UserService;
 //import service.EmployeeService;
@@ -31,6 +30,6 @@ public class DeleteUserAction extends HttpServlet{
 		System.out.println("userlist" + userList);
 		HttpSession session = request.getSession(true);
 		session.setAttribute("userList", userList);
-		response.sendRedirect("/EMS/admin.jsp");
+		response.sendRedirect(request.getContextPath()+"/admin.jsp");
 	}
 }

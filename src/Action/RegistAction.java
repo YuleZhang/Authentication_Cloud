@@ -3,6 +3,7 @@ package Action;
 import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.Enumeration;
 
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -21,7 +22,14 @@ import service.UserServiceiImpl;
 public class RegistAction extends HttpServlet{
 	public void service(HttpServletRequest request, HttpServletResponse response) throws HTTPException, IOException{
 		//接收输入相关信息
+		request.setCharacterEncoding("utf-8");
 		String type = request.getParameter("status");
+		//调试打印参数列表
+//		Enumeration enu = request.getParameterNames();
+//		while (enu.hasMoreElements()) {
+//			String paraName = (String) enu.nextElement();
+//			System.out.println(paraName + ": " + request.getParameter(paraName));
+//		}
 		//管理员注册账号
 		if(type.equals("admin"))
 		{

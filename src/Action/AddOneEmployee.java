@@ -12,7 +12,6 @@ import javax.servlet.http.HttpSession;
 import javax.servlet.jsp.PageContext;
 import javax.xml.ws.http.HTTPException;
 
-import entity.Employee;
 //import service.EmployeeService;
 //import service.EmployeeServiceImpl;
 import entity.User;

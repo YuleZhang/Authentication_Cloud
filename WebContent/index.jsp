@@ -7,7 +7,7 @@
 <title>注册管理员账号(捷径)</title>
 </head>
 <body>
-<form action = "/EMS/RegistAction?status=admin" method="post">
+<form action = "${pageContext.request.contextPath}/RegistAction?status=admin" method="post">
  用户名: <input type="text" name="username"><br>
  密码:   <input type="password" name="password"><br>
 	<input type="submit" value="注册">

@@ -12,7 +12,6 @@ import javax.websocket.Session;
 import javax.xml.ws.http.HTTPException;
 
 import entity.Admin;
-import entity.Employee;
 import entity.User;
 import net.sf.json.JSONObject;
 import service.AdminService;
@@ -27,9 +26,7 @@ import java.util.List;
 
 public class UserAction extends HttpServlet{
 	public void service(HttpServletRequest request, HttpServletResponse response) throws HTTPException,IOException{
-		//获取url传入参数
 		String username = request.getParameter("username");
-		System.out.println(username);
 		String password = request.getParameter("password");
 		String status = request.getParameter("role");	
 		UserService uService = new UserServiceiImpl(); //用户服务类
@@ -37,6 +34,7 @@ public class UserAction extends HttpServlet{
 		HttpSession session = request.getSession();
 //		System.out.println("status: "+status);
 		//根据不同身份进行不同的服务实例化
+		
 		if(status.equals("admin"))
 		{
 			Admin admin = new Admin(username, password);
@@ -45,10 +43,10 @@ public class UserAction extends HttpServlet{
 			{
 				session.setAttribute("userList", listUser);
 				session.setAttribute("admin", admin);
-				response.sendRedirect("/EMS/admin.jsp");
+				response.sendRedirect(request.getContextPath()+"/admin.jsp");
 			}
 			else {
-				response.sendRedirect("/EMS/login.jsp");
+				response.sendRedirect(request.getContextPath()+"/login.jsp");
 			}
 		}
 		else{
@@ -57,10 +55,10 @@ public class UserAction extends HttpServlet{
 			{
 				session.setAttribute("userLogs", listUser);
 				session.setAttribute("username", username);
-				response.sendRedirect("/EMS/userList.jsp");
+				response.sendRedirect(request.getContextPath()+"/userList.jsp");
 			}
 			else {
-				response.sendRedirect("/EMS/login.jsp");
+				response.sendRedirect(request.getContextPath()+"/login.jsp");
 			}
 		}
 		
