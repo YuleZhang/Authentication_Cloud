@@ -44,7 +44,7 @@ window.onload=function(){
 		switch (operate) {
 		case "remove":window.location="DeleteUserAction?username="+username+"&status="+status;break;//"+&pageIndex="+${sessionScope.page.pageIndex}+"&count="+${sessionScope.page.pageSize}
 		case "changeStatu":window.location="updateUser?username="+username;break;
-		case "export":window.location="/EMS/user/exportData";break;
+		case "export":window.location="ExportDateAction";break;
 		case "import":window.location="/EMS/user/importData?filename="+flag;break;
 		case "findu": document.getElementById("form1").submit();break;
 		default: 

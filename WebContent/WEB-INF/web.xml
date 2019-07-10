@@ -100,4 +100,14 @@
     <servlet-name>ExitAction</servlet-name>
     <url-pattern>/ExitAction</url-pattern>
   </servlet-mapping>
+  
+  <servlet>
+    <servlet-name>ExportDateAction</servlet-name>
+    <servlet-class>Action.ExportDateAction</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ExportDateAction</servlet-name>
+    <url-pattern>/ExportDateAction</url-pattern>
+  </servlet-mapping>
+  
 </web-app>
